@@ -1,0 +1,7 @@
+{
+  "name": "Password_manager",
+  "dependencies": {},
+  "globalDependencies": {
+    "index": "file:/home/kot/projects/password_manager/src/app-typings/index.d.ts"
+  }
+}

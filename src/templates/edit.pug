@@ -1,0 +1,56 @@
+md-toolbar(md-scroll-shrink="false")
+  .md-toolbar-tools
+    span(ng-if="!edit.id") Add password
+    span(ng-if="edit.id") Edit password
+
+section.md-padding(flex)
+  .spinner(
+    flex
+    layout="column"
+    layout-align="center center"
+    ng-if="!edit.ready"
+  )
+    md-progress-circular(
+      flex
+      md-mode="indeterminate"
+    )
+  md-card.md-padding(ng-if="edit.ready")
+    form(
+      novalidate
+      name="passwordForm"
+      ng-submit="edit.save(passwordForm)"
+      layout="column"
+    )
+      md-input-container
+        label Label
+        input(
+          type="text"
+          name="label"
+          ng-model="edit.password.label"
+          ng-required="true"
+        )
+        div(ng-messages="passwordForm.label.$error")
+          div(ng-message="required") Label is required.
+      md-input-container
+        label Password
+        input(
+          type="text"
+          name="password"
+          ng-model="edit.password.password"
+          ng-required="true"
+        )
+        div(ng-messages="passwordForm.password.$error")
+          div(ng-message="required") Password is required.
+      md-input-container
+        label Description
+        textarea(
+          name="description"
+          ng-model="edit.password.description"
+        )
+      .actions(layout="row")
+        md-button.md-raised.md-primary(type="submit")
+          span Save
+        md-button.md-raised.md-warn(ng-click="edit.cancel()")
+          span Cancel
+//pre {{edit.id | json}}
+//pre {{edit.password | json}}

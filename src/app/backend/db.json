@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "password": "Gmail",
+    "label": "Gmail",
+    "description": "Gmail password"
+  },
+  {
+    "id": 1,
+    "password": "Dropbox",
+    "label": "Dropbox",
+    "description": "Dropbox password"
+  },
+  {
+    "id": 2,
+    "password": "Card",
+    "label": "Card",
+    "description": "Card number"
+  },
+  {
+    "id": 3,
+    "password": "Drupal",
+    "label": "Drupal",
+    "description": "Drupal password"
+  }
+]

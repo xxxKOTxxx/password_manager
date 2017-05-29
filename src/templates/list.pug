@@ -1,0 +1,50 @@
+md-toolbar(md-scroll-shrink="false")
+  .md-toolbar-tools Password list
+
+section.md-padding(flex)
+  .spinner(
+    flex
+    layout="column"
+    layout-align="center center"
+    ng-if="!list.ready"
+  )
+    md-progress-circular(
+      flex
+      md-mode="indeterminate"
+    )
+  md-card.md-padding(ng-if="list.ready")
+    md-autocomplete(
+      md-search-text="list.search"
+      md-search-text-change="list.filter()"
+      md-selected-item-change="list.filter()"
+      md-items="item in list.search_list"
+      md-item-text="item"
+      md-min-length="1"
+      placeholder="Please type password label"
+    )
+      md-item-template
+        span(
+          md-highlight-text="list.search"
+          md-highlight-flags="ig"
+        ) {{item}}
+      md-not-found
+        span No labels matching "{{list.search}}" were found.
+        md-button.md-primary(ng-click="list.create(list.search)")
+          md-icon note_add
+          span Create a new one!
+
+    table(md-list ng-cloak)
+      tr(md-list-item ng-repeat="item in list.filtered_list")
+        th
+          p.md-list-item-text(ng-bind="::item.label")
+        td.description
+          p.md-list-item-text(ng-bind="::item.description")
+        td.button
+          md-button.md-fab.md-mini.md-primary(ng-click="list.edit(item.id)")
+            md-icon edit
+        td.button
+          md-button.md-fab.md-mini(ng-click="list.remove(item.id)")
+            md-icon delete
+    .actions(layout="row")
+      md-button.md-raised.md-primary(ng-click="list.create()")
+        span Add
