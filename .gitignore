@@ -1,0 +1,10 @@
+$ cat .gitignore
+# Ignore node modules
+node_modules/
+# Ignore JetBrains directory
+/.phpintel
+.idea/
+# Ignore distribution directory
+www/
+# Ignore yarn
+yarn.lock
