@@ -6,5 +6,7 @@ node_modules/
 .idea/
 # Ignore distribution directory
 www/
+# Ignore typings directory
+typings/
 # Ignore yarn
 yarn.lock
